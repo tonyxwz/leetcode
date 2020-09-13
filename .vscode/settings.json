@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        ".gvimrc": "viml",
+        ".vimrc": "viml",
+        "gvimrc": "viml",
+        "SConstruct": "python",
+        "vimrc": "viml",
+        "*.sshconfig": "ssh_config",
+        "iosfwd": "cpp"
+    }
+}
