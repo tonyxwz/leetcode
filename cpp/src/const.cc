@@ -13,9 +13,12 @@ class Plant
   {
   };
   
+  // use 'const' function whenever possible
   void printC() const { cout << C << endl;}
 
   // p.s. this is the reason of this pointer, to distinguish M from argument.
+  // a const instance can only use const functions.
+  // this pointer in a method call of const instance is also const, so no modification is allowed.
   void changeM(int M) {this->M = M;}
 };
 
