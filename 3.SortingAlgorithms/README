@@ -1,0 +1,9 @@
+My own implementation of some sorting algorithms
+
+included algorithms
+
+1. Quick sort
+2. Counting Sort
+3. Heap Sort
+4. Merge Sort
+5. Binary Search Tree (stl::set)
