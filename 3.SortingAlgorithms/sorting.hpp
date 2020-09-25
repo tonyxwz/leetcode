@@ -72,6 +72,7 @@ void shellSort(It begin, It end) {
   }
 }
 
+// for the easy of development, use integer offsets rather than iterators
 template <class It>
 void shellSort2(It begin, It end) {
   auto N = end - begin;
@@ -92,7 +93,14 @@ void shellSort2(It begin, It end) {
 
 template <class It>
 void selectionSort(It begin, It end) {
-  // i really don't want to write this algorithm
+  for (It i = begin; i != end; ++i) {
+    auto minI = i;
+    for (It j = i+1; j != end; ++j) {
+      if(*j < *minI)
+        minI = j;
+    }
+    mySwap(i, minI);
+  }
 }
 
 /*************************************************************************************
@@ -151,11 +159,37 @@ template <class It>
 void heapSort(It begin, It end) {}
 
 template <class It>
-void mergeSort(It begin, It end) {}
+void mergeSort(It begin, It end) {
+  if (begin+1 == end) return;
+  // divide into two parts
+  It mid = begin + (end - begin) / 2;
+  mergeSort(begin, mid);
+  mergeSort(mid, end);
+  // by this time begin-mid and mid-end should be separately sorted
+  It l = begin, r = mid;
+  while(l != mid && r != end) {
+    if (*l < *r) ++l;
+    else {
+      // shift left by one
+      auto value = *r;
+      auto index = r;
+      while(index != l) {
+        *index = *(index - 1);
+        index--;
+      }
+      *l = value;
+      l++;
+      r++;
+      mid++;
+    }
+  }
+}
 
+// use stl::set
 template <class It>
 void bstSort(It begin, It end) {}
 
+// huahua
 template <class It>
 void countingSort(It begin, It end) {}
 }  // namespace st

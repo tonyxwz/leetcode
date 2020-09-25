@@ -6,6 +6,7 @@
 #include <random>
 #include <algorithm>
 #include <chrono>
+#include <iomanip>
 #include "sorting.hpp"
 
 template<class T, class F>
@@ -29,24 +30,33 @@ int main() {
     v->at(i) = i + 1;
   std::shuffle(v->begin(), v->end(), g);
 
-  std::cout << "Bubble sort: ";
+  std::cout << std::setw(20) << std::left << "Bubble sort: ";
   auto r1 = runFunc(*v, st::bubbleSort<std::vector<int>::iterator>);
   std::cout << (std::is_sorted(r1.begin(), r1.end()) ? "success" : "fail") << std::endl;
   
-  std::cout << "Insertion sort: ";
+  std::cout << std::setw(20) << "Insertion sort: ";
   auto r2 = runFunc(*v, st::insertionSort<std::vector<int>::iterator>);
   std::cout << (std::is_sorted(r2.begin(), r2.end()) ? "success" : "fail") << std::endl;
 
-  std::cout << "Quick sort: ";
+  std::cout << std::setw(20) << "Selection sort: ";
+  auto r5 = runFunc(*v, st::selectionSort<std::vector<int>::iterator>);
+  std::cout << (std::is_sorted(r5.begin(), r5.end()) ? "success" : "fail") << std::endl;
+
+  std::cout << std::setw(20) << "Shell sort: ";
+  auto r4 = runFunc(*v, st::shellSort<std::vector<int>::iterator>);
+  std::cout << (std::is_sorted(r4.begin(), r4.end()) ? "success" : "fail") << std::endl;
+
+// quick sort
+  std::cout << std::setw(20) << "Quick sort: ";
   auto r3 = runFunc(*v, st::quickSort<std::vector<int>::iterator>);
   std::cout << (std::is_sorted(r3.begin(), r3.end()) ? "success" : "fail") << std::endl;
 
+  std::cout << std::setw(20) << "Merge sort: ";
+  auto r6 = runFunc(*v, st::mergeSort<std::vector<int>::iterator>);
+  std::cout << (std::is_sorted(r6.begin(), r6.end()) ? "success" : "fail") << std::endl;
   // for (auto i : r3)
   //   std::cout << i << " ";
 
-  std::cout << "Shell sort: ";
-  auto r4 = runFunc(*v, st::shellSort<std::vector<int>::iterator>);
-  std::cout << (std::is_sorted(r4.begin(), r4.end()) ? "success" : "fail") << std::endl;
 
   delete v;
   return 0;
