@@ -25,7 +25,7 @@ public:
 
   // not marking print3 as virtual to test later on inheritance
   // automatically considerred as virtual
-  // https://stackoverflow.com/a/2964003
+  // // https://stackoverflow.com/a/2964003
   void print3() override { cout << "Derived::print3" << endl; }
 };
 

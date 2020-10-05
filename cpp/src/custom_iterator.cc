@@ -1,6 +1,6 @@
 /*
   C++中如何实现自定义类型的迭代器
-  https://blog.csdn.net/XiaoHeiBlack/article/details/77014626
+  // https://blog.csdn.net/XiaoHeiBlack/article/details/77014626
  */
 
 #include <iostream>
@@ -80,7 +80,7 @@ public:
     // memset byte
     memset(_selfElems, 0, sizeof(T)*_count);
   }
-  
+
   T& operator[](int i) {
     return _selfElems[i];
   }
