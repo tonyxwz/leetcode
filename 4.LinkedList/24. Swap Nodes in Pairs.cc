@@ -1,6 +1,6 @@
-https://leetcode.com/problems/swap-nodes-in-pairs/
-
-```cpp
+// https://leetcode.com/problems/swap-nodes-in-pairs/
+#include "leetcode.h"
+// ```cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -21,14 +21,14 @@ public:
         while(head && head->next && head->next->next) {
             auto n1 = head->next;
             auto n2 = n1->next;
-            
+
             n1->next = n2->next;
             n2->next = n1;
-            
+
             head->next = n2;
             head = n1;
         }
         return d.next;
     }
 };
-```
+// ```

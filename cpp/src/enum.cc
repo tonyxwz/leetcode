@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstdint>
-// // https://en.cppreference.com/w/cpp/language/enum
+// https://en.cppreference.com/w/cpp/language/enum
 
 enum smallenum: std::int16_t {
   a=9, b, c

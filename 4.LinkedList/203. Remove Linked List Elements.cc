@@ -1,6 +1,7 @@
-https://leetcode.com/problems/remove-linked-list-elements/
+// https://leetcode.com/problems/remove-linked-list-elements/
+#include "leetcode.h"
 
-```cpp
+// ```cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -26,4 +27,4 @@ public:
         return prev.next;
     }
 };
-```
+// ```

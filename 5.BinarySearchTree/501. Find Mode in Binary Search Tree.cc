@@ -1,6 +1,7 @@
-https://leetcode.com/problems/find-mode-in-binary-search-tree/
+// https://leetcode.com/problems/find-mode-in-binary-search-tree/
+#include "leetcode.h"
 
-```cpp
+// ```cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -22,11 +23,11 @@ public:
         inorder(root);
         return ans;
     }
-    
+
     void inorder(TreeNode* node) {
         if(!node) return;
         inorder(node->left);
-        
+
         if(!prev || prev->val != node->val) {
             freq = 1;
         } else if (prev->val == node->val) {
@@ -39,9 +40,9 @@ public:
             ans.clear();
             ans.push_back(node->val);
         }
-        
+
         prev = node;
         inorder(node->right);
     }
 };
-```
+// ```

@@ -1,8 +1,9 @@
-https://leetcode.com/problems/minimum-absolute-difference-in-bst/
+// https://leetcode.com/problems/minimum-absolute-difference-in-bst/
+#include "leetcode.h"
 
-二叉搜索树中序遍历的结果是按从大到小的正确顺序的
+// 二叉搜索树中序遍历的结果是按从大到小的正确顺序的
 
-```cpp
+// ```cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -22,7 +23,7 @@ public:
         getMinimumDifference(root, prev, ans);
         return ans;
     }
-    
+
     void getMinimumDifference(TreeNode* root, TreeNode* &prev, int &D) {
         if (!root) return;
         getMinimumDifference(root->left, prev, D);
@@ -34,4 +35,4 @@ public:
         getMinimumDifference(root->right, prev, D);
     }
 };
-```
+// ```

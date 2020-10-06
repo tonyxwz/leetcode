@@ -1,6 +1,6 @@
-https://leetcode.com/problems/sort-list/
-
-```cpp
+// https://leetcode.com/problems/sort-list/
+#include "leetcode.h"
+// ```cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -20,7 +20,7 @@ public:
         ListNode* r = sortList(mid);
         return merge(l, r);
     }
- 
+
     ListNode* getMid(ListNode* head) {
         if (!head || !head->next) return nullptr;
         ListNode *slow = nullptr;
@@ -33,7 +33,7 @@ public:
         slow->next = nullptr;
         return mid;
     }
-    
+
     ListNode* merge(ListNode* l, ListNode* r) {
         ListNode dh;
         ListNode *curr = &dh;
@@ -52,4 +52,4 @@ public:
         return dh.next;
     }
 };
-```
+// ```

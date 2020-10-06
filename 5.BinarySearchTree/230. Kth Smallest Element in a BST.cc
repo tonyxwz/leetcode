@@ -1,6 +1,7 @@
-https://leetcode.com/problems/kth-smallest-element-in-a-bst/
+// https://leetcode.com/problems/kth-smallest-element-in-a-bst/
+#include "leetcode.h"
 
-```cpp
+// ```cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -15,7 +16,7 @@ https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 class Solution {
 public:
     int kthSmallest(TreeNode* root, int k) {
-        // in order 
+        // in order
         stack<TreeNode*> s;
         do {
             while(root) {
@@ -30,4 +31,4 @@ public:
         return -1;
     }
 };
-```
+// ```

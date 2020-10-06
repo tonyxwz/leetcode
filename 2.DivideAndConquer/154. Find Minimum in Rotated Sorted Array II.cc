@@ -1,9 +1,8 @@
-https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/
+// https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/
+#include "leetcode.h"
+// 与之前不同的地方在于，本题允许元素重复，当左右位置相等的时候，不能简单的判定内部排序的情况。
+// 代码虽然相同但是时间复杂度不同。
 
-与之前不同的地方在于，本题允许元素重复，当左右位置相等的时候，不能简单的判定内部排序的情况。
-代码虽然相同但是时间复杂度不同。
-
-```cpp
 class Solution {
 public:
     int findMin(vector<int>& nums) {
@@ -22,4 +21,3 @@ public:
         );
     }
 };
-```

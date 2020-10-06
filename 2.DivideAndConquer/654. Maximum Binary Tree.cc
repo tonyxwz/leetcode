@@ -1,8 +1,7 @@
-https://leetcode.com/problems/maximum-binary-tree/
+// https://leetcode.com/problems/maximum-binary-tree/
+#include "leetcode.h"
 
-
-需要熟练运用C++ containers和iterator
-```cpp
+// 需要熟练运用C++ containers和iterator
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -30,4 +29,3 @@ public:
         return root;
     }
 };
-```

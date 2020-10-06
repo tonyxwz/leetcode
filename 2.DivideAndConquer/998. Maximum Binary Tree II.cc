@@ -1,6 +1,6 @@
-https://leetcode.com/problems/maximum-binary-tree-ii/
+// https://leetcode.com/problems/maximum-binary-tree-ii/
+#include "leetcode.h"
 
-```cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -29,4 +29,3 @@ public:
         return root; 
     }
 };
-```

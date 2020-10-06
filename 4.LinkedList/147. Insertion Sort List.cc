@@ -1,6 +1,7 @@
-https://leetcode.com/problems/insertion-sort-list/
+// https://leetcode.com/problems/insertion-sort-list/
+#include "leetcode.h"
 
-```cpp
+// ```cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -21,14 +22,14 @@ public:
             while(curr->next && curr->next->val < head->val)
                 curr = curr->next;
             tmp2 = head->next;
-            
+
             tmp = curr->next;
             curr->next = head;
-            head->next = tmp; 
-            
+            head->next = tmp;
+
             head = tmp2;
-        }gg
+        }
         return dh.next;
     }
 };
-```
+// ```

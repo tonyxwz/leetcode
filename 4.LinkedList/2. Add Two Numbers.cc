@@ -1,6 +1,7 @@
-https://leetcode.com/problems/add-two-numbers/
+// https://leetcode.com/problems/add-two-numbers/
+#include "leetcode.h"
 
-```cpp
+// ```cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -14,7 +15,7 @@ https://leetcode.com/problems/add-two-numbers/
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        ListNode *ans = nullptr; 
+        ListNode *ans = nullptr;
         ListNode** curr = &ans;
         bool forward = false;
         while(l1 && l2 || forward) {
@@ -27,8 +28,8 @@ public:
             if(l2) l2 = l2->next;
         }
         if (l1) *curr = l1;
-        if (l2) *curr = l2; 
+        if (l2) *curr = l2;
         return ans;
     }
 };
-```
+// ```

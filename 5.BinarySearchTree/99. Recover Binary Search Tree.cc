@@ -1,8 +1,9 @@
-https://leetcode.com/problems/recover-binary-search-tree/
+// https://leetcode.com/problems/recover-binary-search-tree/
 
-Reminder: inorder traversal <==> BST !!
+#include "leetcode.h"
+// Reminder: inorder traversal <==> BST !!
 
-```cpp
+// ```cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -18,7 +19,7 @@ class Solution {
     TreeNode* prev = nullptr;
     TreeNode* first = nullptr;
     TreeNode* second = nullptr;
-    
+
 public:
   void recoverTree(TreeNode* root) {
     inorder(root);
@@ -35,4 +36,4 @@ public:
      inorder(root->right);
   }
 };
-```
+// ```

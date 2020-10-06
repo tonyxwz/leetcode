@@ -1,8 +1,7 @@
-https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+// https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+#include "leetcode.h"
+// Binary search
 
-Binary search
-
-```cpp
 class Solution {
 public:
     int findMin(vector<int>& nums) {
@@ -21,4 +20,3 @@ public:
         return findMin(nums, m+1, r);
     }
 };
-```

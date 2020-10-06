@@ -1,9 +1,10 @@
-https://leetcode.com/problems/merge-two-sorted-lists/
+// https://leetcode.com/problems/merge-two-sorted-lists/
+#include "leetcode.h"
 
-总结：链接表问题一个巧妙的思路是创建一个dummyhead节点这样
-会容易实现很多
+// Reminder：链接表问题一个巧妙的思路是创建一个dummyhead节点这样
+// 会容易实现很多
 
-```cpp
+// ```cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -34,4 +35,4 @@ public:
         return head.next;
     }
 };
-```
+// ```

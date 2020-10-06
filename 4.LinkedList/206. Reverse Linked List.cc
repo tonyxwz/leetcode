@@ -1,13 +1,15 @@
-https://leetcode.com/problems/reverse-linked-list/
+// https://leetcode.com/problems/reverse-linked-list/
+#include "leetcode.h"
 
-# Recursion
-
+/* # Recursion
+Reminder:
 tail = reverseList(head->next);
 the base condition is the last node, where `node->next=nullptr`
 
 the reverse node->next and node
+*/
 
-```cpp
+// ```cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -20,7 +22,7 @@ the reverse node->next and node
  */
 class Solution {
 public:
-    
+
     ListNode* reverseList(ListNode* head) {
         if (head == nullptr || head->next == nullptr) {
             return head;
@@ -32,4 +34,4 @@ public:
         }
     }
 };
-```
+// ```

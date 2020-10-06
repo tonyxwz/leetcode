@@ -1,11 +1,14 @@
-https://leetcode.com/problems/delete-node-in-a-bst/
+// https://leetcode.com/problems/delete-node-in-a-bst/
+#include "leetcode.h"
 
-Reminder:
+/* Reminder:
 这道题是一个很典型的多种情况讨论的题
 不要怕麻烦，每一种情况都讨论一下，其实也不难
 
-二叉树 最好的做法就是递归，思路清晰。
-```cpp
+二叉树 最好的做法就是递归，思路清晰
+*/
+
+// ```cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -52,6 +55,6 @@ public:
             return new_root;
         }
     }
-    
+
 };
-```
+// ```

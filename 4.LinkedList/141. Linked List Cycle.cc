@@ -1,6 +1,7 @@
-https://leetcode.com/problems/linked-list-cycle/
+// https://leetcode.com/problems/linked-list-cycle/
+#include "leetcode.h"
 
-```cpp
+// ```cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -24,5 +25,5 @@ public:
         return false;
     }
 };
-```
+// ```
 

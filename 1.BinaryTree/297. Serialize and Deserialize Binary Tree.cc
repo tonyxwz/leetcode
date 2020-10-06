@@ -12,7 +12,7 @@
 // ```cpp
 // Author: Huahua
 // Running time: 39 ms
-using namespace std; 
+using namespace std;
 
 class Codec {
  public:
