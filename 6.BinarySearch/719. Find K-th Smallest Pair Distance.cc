@@ -1,9 +1,11 @@
 #include "leetcode.h"
 /* https://xie.infoq.cn/article/03b47ae0927607897fbd05b8e */
 // reminder: lower bound
-class Solution {
- public:
-  int smallestDistancePair(vector<int>& nums, int k) {
+class Solution
+{
+public:
+  int smallestDistancePair(vector<int>& nums, int k)
+  {
     std::sort(nums.begin(), nums.end());
     const int n = nums.size();
     int l = 0;
