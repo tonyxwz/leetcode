@@ -13,9 +13,12 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution {
- public:
-  ListNode* mergeKLists(vector<ListNode*>& lists) {
+// linear scan O(n * k)
+class Solution
+{
+public:
+  ListNode* mergeKLists(vector<ListNode*>& lists)
+  {
     ListNode head;
     ListNode* curr = &head;
 
@@ -59,12 +62,16 @@ class Solution {
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution {
- public:
-  ListNode* mergeKLists(vector<ListNode*>& lists) {
-    if (lists.size() == 0) return nullptr;
+class Solution
+{
+public:
+  ListNode* mergeKLists(vector<ListNode*>& lists)
+  {
+    if (lists.size() == 0)
+      return nullptr;
     int N = lists.size();
     int interval = 1;
+    // Reminder!!: nice interval design
     while (interval < N) {
       cout << interval;
       for (int i = 0; i < N - interval; i += interval * 2) {
@@ -75,7 +82,8 @@ class Solution {
     return lists[0];
   }
 
-  ListNode* merge2Lists(ListNode* l1, ListNode* l2) {
+  ListNode* merge2Lists(ListNode* l1, ListNode* l2)
+  {
     ListNode head;
     ListNode* curr = &head;
     while (l1 && l2) {
@@ -88,9 +96,39 @@ class Solution {
       }
       curr = curr->next;
     }
-    if (l1) curr->next = l1;
-    if (l2) curr->next = l2;
+    if (l1)
+      curr->next = l1;
+    if (l2)
+      curr->next = l2;
     return head.next;
   }
 };
 // ```
+
+class Solution3
+{
+  // using heap (priority queue to find the minimal pointer)
+  struct CompareNode
+  {
+    bool operator()(ListNode* a, ListNode* b) { return a->val < b->val; }
+  };
+  static bool compareNode(ListNode* a, ListNode* b) { return a->val < b->val; }
+
+public:
+  ListNode* mergeKList(vector<ListNode*>& lists)
+  {
+    priority_queue<ListNode*, vector<ListNode*>, CompareNode> pq(lists.begin(),
+                                                                 lists.end());
+    ListNode dummyhead;
+    ListNode* curr = &dummyhead;
+    while (!pq.empty()) {
+      auto node = pq.top();
+      pq.pop();
+      curr->next = node;
+      curr = curr->next;
+      if (node->next)
+        pq.push(node->next);
+    }
+    return dummyhead.next;
+  }
+};
