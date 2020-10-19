@@ -1,11 +1,14 @@
 # TODO
 
 ## C++ Programming
+- Effective Modern C++
+- Geek time C++: adah1972
+  - https://time.geekbang.org/column/256
 - 左值和右值 https://stackoverflow.com/questions/5481539/what-does-t-double-ampersand-mean-in-c11
 - lambda: std::function: https://en.cppreference.com/w/cpp/language/lambda
 
 ## Data structures and algorithms
-- priority queue 优先队列 (stl::heap, make_heap, is_heap, push_heap, pop_heap)
+- 实现priority queue 优先队列 (stl::heap, make_heap, is_heap, push_heap, pop_heap)
 - Heap sort
 - hybrid sorting algorithms
 - 红黑树，AVL树 (算法导论)
@@ -57,3 +60,7 @@ https://www.ocf.berkeley.edu/~shidi/cs61a/wiki/Iteration_vs._recursion
 - dm-crypt for new laptop
 - save a reproducible configuration file every laptops
   - consult John Wiegley's configurations
+
+## Git
+- submodule
+- rebase
