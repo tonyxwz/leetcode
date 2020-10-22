@@ -47,15 +47,15 @@ Concurrency
 
 ## Recursion to iteration
 
-http://blog.moertel.com/posts/2013-05-11-recursive-to-iterative.html
-https://stackoverflow.com/questions/159590/way-to-go-from-recursion-to-iteration
-https://www.refactoring.com/catalog/replaceRecursionWithIteration.html
-https://www.ocf.berkeley.edu/~shidi/cs61a/wiki/Iteration_vs._recursion
+- http://blog.moertel.com/posts/2013-05-11-recursive-to-iterative.html
+- https://stackoverflow.com/questions/159590/way-to-go-from-recursion-to-iteration
+- https://www.refactoring.com/catalog/replaceRecursionWithIteration.html
+- https://www.ocf.berkeley.edu/~shidi/cs61a/wiki/Iteration_vs._recursion
 
 ## Mathematics
 
-离散数学 discrete mathematics
-随机分析 stochastic calculus
+- 离散数学 discrete mathematics
+- 随机分析 stochastic calculus
 
 
 ## Functional programming
