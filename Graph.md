@@ -172,6 +172,7 @@ actual height of the the disjoint set any more.
     - `p[i] = i`
     - `rank[i] = 0`
     - O(N)
+- MarkSet:
 - FindSet: `FindSet(i)`, for vertex `i`, recursively goes up the tree. That is
   from `p[i]` recursively visit p[i] until we reach the root node (p[i] == i),
   the representative item of this disjoint set. **Path Compression Heuristic**
@@ -194,6 +195,14 @@ Rank is not the actual height of the trees (more like complexity of the trees
 (not reflecting the actual height of the tree). We don't need to fix this
 because the rank is only to guide the merge of the trees.
 
+
+### Application of Disjoint set
+
+1. Represents network connectivity
+2. Image processing
+3. In game algorithms
+4. Kruskal's minimal spanning tree
+5. finding cycle in undirected graph
 
 ### Reference
 
