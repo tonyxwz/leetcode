@@ -5,15 +5,15 @@
 
 using namespace std;
 
-/* the implementation in filter.cpp poses a resgiction on the outiterator that
+/* the implementation in filter.cpp poses a restriction on the outiterator that
  * the capacity must be enough (the same as the input iterator's at the worst
  * case scenario).
  *
  * The problem is that, for non-worstcast scenarios, the size of the OutIterator
- * is too big. 
+ * is too big.
  *
- * The problem is that our implementation of `filter` requires the data is
- * copied to an existing place.
+ * however, passing an empty container is not possible because our
+ * implementation of `filter` requires the data is copied to an existing place.
  *
  * Solution: insertion adaptors
  * std::back_inserter, std::inserter, std::front_inserter in header file

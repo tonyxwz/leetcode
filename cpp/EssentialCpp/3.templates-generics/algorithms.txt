@@ -1,0 +1,115 @@
+All the generic algorithms operates on containers
+Almost all the algorithms accepts two iterators of the container, marking the
+range that it will operate on.
+
+
+Algorithms that alters the data comes in two flavors, in place change or copy
+the changed data into a container marked by a beginning iterator. The former
+just have a normal name such as `replace`, the latter always ends with suffix
+"_copy".
+
+accumulate
+adjacent_difference
+adjacent_find
+
+search: search for the first occurrence
+search_n: search for the first occurence of n-repeated value
+binary_search: assuming the container is sorted using std::less<T>
+
+copy
+copy_backward: the target iterator is the off the step end of the target
+    container
+
+count
+count_if: the _if suffix always appears as an alternative version of the
+    algorithm which takes a value to compare.
+find
+find_if
+find_end(it begin1, it end1, it begin2, it end2): find in iterator 1 a matching
+    of iterator 2.
+find_first_of: find in iterator 1 the first element from iterator 2.
+
+
+fill(Iter begin, Iter end, value);
+fill_n(Iter begin, count, value); fill `count` elements starting from `begin` with
+a copy of `value`
+
+for_each
+transform
+
+generate(begin, end, generator_function)
+generate_n(begin, count generator_function)
+
+includes: begin1, end1, begin2, end2; (take two sorted arrays and return true if
+    the first array contains entirely the second)
+
+inner_product: just mathematical meaning, with an additional initial value to
+accumulate
+
+inplace_merge(begin, middle, end): merge sorted array [begin, middle), [middle, end)
+    into sorted[begin, end)
+iter_swap: like swap but for iterators
+
+
+lexicographical_compare: compare two sequences, using by default less than
+operator. return true if the first sequence is less than the second one.
+
+
+max, min
+max_element, min_element
+
+merge: like inplace merge but out of place into the fifth argument
+
+nth_element: partial sort, the nth element is positioned to wherever it should
+appear if the array were sorted.
+
+partial_sum: like reduce
+
+partition(begin, end, func)
+stable_partition:
+divide the array into two parts according func(i)'s true / false
+true is placed before false
+stable_partition guarantees that relative order in both group is not changed
+
+random_shuffle(begin, end): obsolete
+shuffle
+
+iter = remove(begin, end, value): iter is the off-edge end of remaining elements
+remove_copy(begin, end, out, value): copy to out
+To apply remove:
+    iter = remove(v.begin, v.end, value);
+    v.erase(iter, v.end)
+
+iter = remove_if(begin, end, func): same as remove, element is removed if func(e)
+evaluates to true
+remove_copy_if: ...
+
+replace(begin, end, oldvalue, newvalue)
+replace_copy
+replace_if(begin, end, func, newvalue)
+replace_copy_if
+
+reverse(begin, end)
+reverse_copy(begin, end, outbegin)
+
+rotate(begin, middle, end): [begin, middle)[middle, end) 
+    -> [mid, end)[begin, mid): inplace
+rotate_copy(begin, mid, end, out)
+
+iter = unique(begin, end)
+unique_copy(begin, end, out): same pattern as remove
+
+transform(begin, end, out, unary_op)
+transform(begin, end, begin2, out, binary_op)
+
+sort(begin, end, [LessThan])
+stable_sort: don't change the relative order of those equal elements
+
+set_union(begin1, end1, begin2, end2, out)
+set_intersection(begin1, end1, begin2, end2, out)
+set_difference(begin1, end1, begin2, end2, out): in set 1 but not in set 2
+set_symmetric_difference(begin1, end1, begin2, end2, out): in set1 but not in
+    set2 and in set 2 but not in set1
+
+
+

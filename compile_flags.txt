@@ -1,4 +1,6 @@
 -Wall
--Iinclude
--std=c++14
+-I./include
+-I/home/weizhou/source/vcpkg/installed/x64-linux/include
+-L/home/weizhou/source/vcpkg/installed/x64-linux/lib
+-std=c++17
 
