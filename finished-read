@@ -1,0 +1,11 @@
+
+- [Public friend swap](https://stackoverflow.com/questions/5695548/public-friend-swap-member-function)
+- [Copy and swap idiom](https://stackoverflow.com/questions/3279543/what-is-the-copy-and-swap-idiom)
+- [Move constructor](https://stackoverflow.com/questions/3106110/what-is-move-semantics)
+- [POD in C++](https://stackoverflow.com/questions/146452/what-are-pod-types-in-c)
+- [Rule of three](https://stackoverflow.com/questions/4172722/what-is-the-rule-of-three)
+- [Constructor Delegation](https://docs.microsoft.com/en-us/cpp/cpp/delegating-constructors?view=vs-2019)
+- [lambda: std::function](https://en.cppreference.com/w/cpp/language/lambda)
+- 左值和右值:
+    - https://stackoverflow.com/questions/5481539/what-does-t-double-ampersand-mean-in-c11
+    - https://web.archive.org/web/20140113221447/http://cpp-next.com/archive/2009/08/want-speed-pass-by-value/
