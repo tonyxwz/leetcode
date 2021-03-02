@@ -1,7 +1,13 @@
 // https:// leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 #include "leetcode.h"
 /* Given the assumptions that `p` and `q` are present in the
-    tree and `p` and `q` are unique */
+    tree and `p` and `q` are unique
+
+  This work fine if only one query is required. However, if it is required to
+  query LCA very often of a tree (unchanged), Eulerian path method is a better
+  approach.
+  video: https://www.youtube.com/watch?v=sD1IoalFomA
+*/
 
 // ```cpp
 /**

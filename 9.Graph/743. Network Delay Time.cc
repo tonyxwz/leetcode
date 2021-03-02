@@ -30,39 +30,6 @@ private:
   }
 };
 
-class Solution2
-{
-public:
-  int networkDelayTime(vector<vector<int>>& times, int N, int K)
-  {
-    vector<vector<vector<int>>> g(N + 1);
-    for (const auto& t_ : times)
-      g[t_[0]].push_back({ t_[2], t_[1] });
-
-    vector<int> t(N, INT_MAX);
-    for (auto& v : g) // sort the graph according to weight
-      sort(v.begin(), v.end());
-    dfs(K, g, t, 0);
-    int ans = *max_element(t.begin(), t.end());
-    return ans == INT_MAX ? -1 : ans;
-  }
-
-private:
-  void dfs(int u,
-           const vector<vector<vector<int>>>& g,
-           vector<int>& t,
-           int curr)
-  {
-    if (curr >= t[u - 1])
-      return;
-    t[u - 1] = curr;
-    for (const auto& v : g[u]) {
-      // going from u -> v[1] : v[0]
-      dfs(v[1], g, t, curr + v[0]);
-    }
-  }
-};
-
 // Dijkstra algorithm
 
 class Solution3
@@ -77,6 +44,7 @@ public:
     priority_queue<pair<int, int>> pq;
     // priority-queue in stl is max heap by default, in dijkstra algorithm
     // we need a min heap instead
+    // (two ways, negate distance or use std::greater)
     pq.push({ 0, K });
     vector<int> dist(N, 0);
     unordered_set<int> seen;
@@ -212,12 +180,12 @@ public:
   }
 };
 
+// bellman ford
 class Solution6
 {
 public:
   int networkDelayTime(vector<vector<int>>& times, int N, int K)
   {
-    // bellman ford
     vector<int> dist(N, INT_MAX);
     dist[K - 1] = 0;
 
@@ -235,13 +203,12 @@ public:
   }
 };
 
+// floyd-warshall
 class Solution7
 {
 public:
   int networkDelayTime(vector<vector<int>>& times, int N, int K)
   {
-    // floyd-warshall
-    // 1. D_0
     vector<vector<int>> dist(N, vector<int>(N, INT_MAX));
     for (auto t : times)
       dist[t[0] - 1][t[1] - 1] = t[2];
