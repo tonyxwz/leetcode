@@ -1,5 +1,7 @@
 How to remember: **Depth first searching**
 
+traverse all nodes, if unvisited, dfs
+
 topsort(graph):
   visited: array of false, len=graphSize
   order:array of node, len=graphSize

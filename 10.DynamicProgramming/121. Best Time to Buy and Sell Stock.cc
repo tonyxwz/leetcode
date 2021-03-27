@@ -1,4 +1,5 @@
 #include "leetcode.h"
+
 class Solution
 {
 public:
@@ -13,4 +14,3 @@ public:
     return max_prof;
   }
 };
-
