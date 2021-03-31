@@ -1,6 +1,6 @@
 // https:// leetcode.com/problems/serialize-and-deserialize-binary-tree/
 // #Implement a codec for serializing binary trees
-#include "leetcode.hpp"
+#include "leetcode.h"
 // Reference : huahua
 
 // ##解
@@ -14,10 +14,12 @@
 // Running time: 39 ms
 using namespace std;
 
-class Codec {
- public:
+class Codec
+{
+public:
   // Encodes a tree to a single string.
-  string serialize(TreeNode* root) {
+  string serialize(TreeNode* root)
+  {
     ostringstream out;
     serialize(root, out);
     cout << out.str() << endl;
@@ -25,13 +27,15 @@ class Codec {
   }
 
   // Decodes your encoded data to tree.
-  TreeNode* deserialize(string data) {
+  TreeNode* deserialize(string data)
+  {
     istringstream in(data);
     return deserialize(in);
   }
 
- private:
-  void serialize(TreeNode* root, ostringstream& out) {
+private:
+  void serialize(TreeNode* root, ostringstream& out)
+  {
     if (!root) {
       out << "# ";
       return;
@@ -41,11 +45,13 @@ class Codec {
     serialize(root->right, out);
   }
 
-  TreeNode* deserialize(istringstream& in) {
+  TreeNode* deserialize(istringstream& in)
+  {
     string val;
     in >> val;
-    cout << val << endl;
-    if (val == "#") return nullptr;
+    // cout << val << endl;
+    if (val == "#")
+      return nullptr;
     TreeNode* root = new TreeNode(stoi(val));
     root->left = deserialize(in);
     root->right = deserialize(in);
@@ -62,40 +68,58 @@ class Codec {
 // ```cpp
 // Author : Huahua
 // Running time: 23 ms (beat 98.07%)
-class Codec2 {
- public:
+class Codec2
+{
+public:
   // Encodes a tree to a single string.
-  string serialize(TreeNode* root) {
+  string serialize(TreeNode* root)
+  {
     ostringstream out;
     serialize(root, out);
     return out.str();
   }
 
   // Decodes your encoded data to tree.
-  TreeNode* deserialize(string data) {
+  TreeNode* deserialize(string data)
+  {
     istringstream in(data);
     return deserialize(in);
   }
 
- private:
-  enum STATUS { ROOT_NULL = 0x0, ROOT = 0x1, LEFT = 0x2, RIGHT = 0x4 };
+private:
+  enum STATUS
+  {
+    ROOT_NULL = 0x0,
+    ROOT = 0x1,
+    LEFT = 0x2,
+    RIGHT = 0x4
+  };
 
-  void serialize(TreeNode* root, ostringstream& out) {
+  void serialize(TreeNode* root, ostringstream& out)
+  {
     char status = 0;
-    if (root) status |= ROOT;
-    if (root && root->left) status |= LEFT;
-    if (root && root->right) status |= RIGHT;
+    if (root)
+      status |= ROOT;
+    if (root && root->left)
+      status |= LEFT;
+    if (root && root->right)
+      status |= RIGHT;
     out.write(&status, sizeof(char));
-    if (!root) return;
+    if (!root)
+      return;
     out.write(reinterpret_cast<char*>(&(root->val)), sizeof(root->val));
-    if (root->left) serialize(root->left, out);
-    if (root->right) serialize(root->right, out);
+    if (root->left)
+      serialize(root->left, out);
+    if (root->right)
+      serialize(root->right, out);
   }
 
-  TreeNode* deserialize(istringstream& in) {
+  TreeNode* deserialize(istringstream& in)
+  {
     char status;
     in.read(&status, sizeof(char));
-    if (!status & ROOT) return nullptr;
+    if (!(status & ROOT))
+      return nullptr;
     auto root = new TreeNode(0);
     in.read(reinterpret_cast<char*>(&root->val), sizeof(root->val));
     root->left = (status & LEFT) ? deserialize(in) : nullptr;
@@ -108,3 +132,57 @@ class Codec2 {
 // Codec codec;
 // codec.deserialize(codec.serialize(root));
 // ```
+class Codec
+{
+
+public:
+  // Encodes a tree to a single string.
+  string serialize(TreeNode* root)
+  {
+    ostringstream os;
+    encode(root, os);
+    return os.str();
+  }
+
+  // Decodes your encoded data to tree.
+  TreeNode* deserialize(string data)
+  {
+    istringstream is(data);
+    return decode(is);
+  }
+
+private:
+  const char NON = 0, OK = 1 << 0, LEFT = 1 << 1, RIGHT = 1 << 2;
+
+  void encode(TreeNode* node, ostringstream& out)
+  {
+    char status = 0;
+    if (node)
+      status |= OK;
+    if (node && node->left)
+      status |= LEFT;
+    if (node && node->right)
+      status |= RIGHT;
+    out.write(&status, sizeof(char));
+    if (!node)
+      return;
+    out.write(reinterpret_cast<char*>(&node->val), sizeof(node->val));
+    if (node->left)
+      encode(node->left, out);
+    if (node->right)
+      encode(node->right, out);
+  }
+
+  TreeNode* decode(istringstream& in)
+  {
+    char status;
+    in.read(&status, sizeof(char));
+    if (!(status & OK))
+      return nullptr;
+    auto node = new TreeNode(0);
+    in.read(reinterpret_cast<char*>(&node->val), sizeof(node->val));
+    node->left = status & LEFT ? decode(in) : nullptr;
+    node->right = status & RIGHT ? decode(in) : nullptr;
+    return node;
+  }
+};

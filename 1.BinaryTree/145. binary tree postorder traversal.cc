@@ -91,6 +91,7 @@ class Solution {
       if (tmp->left) s1.push(tmp->left);
       if (tmp->right) s1.push(tmp->right);
     }
+
     while (!s2.empty()) {
       TreeNode* tmp = s2.top();
       s2.pop();
