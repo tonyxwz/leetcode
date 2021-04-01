@@ -20,25 +20,27 @@
  * };
  */
 
-struct Exp {
-  int yes;
-  int no;
-};
-
-class Solution {
- public:
-  int rob(TreeNode* root) {
-    Exp e = plan(root);
-    return max(e.yes, e.no);
+class Solution
+{
+public:
+  int rob(TreeNode* root)
+  {
+    auto x = rob2(root);
+    return max(x.first, x.second);
   }
 
-  Exp plan(TreeNode* root) {
-    if (!root) return {0, 0};
-    auto l = plan(root->left);
-    auto r = plan(root->right);
-    int yes = root->val + l.no + r.no;
-    int no = max(l.yes, l.no) + max(r.yes, r.no);
-    return {yes, no};
+private:
+  pair<int, int> rob2(TreeNode* root)
+  {
+    if (!root)
+      return { 0, 0 };
+    auto l = rob2(root->left);
+    auto r = rob2(root->right);
+
+    pair<int, int> ans{ 0, 0 };
+    ans.first = root->val + l.second + r.second;
+    ans.second = max(l.first, l.second) + max(r.first, r.second);
+    return ans;
   }
 };
 // ```
