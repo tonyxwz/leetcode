@@ -14,16 +14,20 @@
  * left(left), right(right) {}
  * };
  */
-class Solution {
- public:
-  int diameterOfBinaryTree(TreeNode* root) {
+class Solution
+{
+public:
+  int diameterOfBinaryTree(TreeNode* root)
+  {
     int diameter = 0;
     perimeter(root, diameter);
     return diameter;
   }
 
-  int perimeter(TreeNode* root, int& diameter) {
-    if (!root) return -1;
+  int perimeter(TreeNode* root, int& diameter)
+  {
+    if (!root)
+      return -1;
     int l = perimeter(root->left, diameter) + 1;
     int r = perimeter(root->right, diameter) + 1;
     diameter = max(diameter, l + r);
